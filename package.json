@@ -1,0 +1,22 @@
+{
+  "name": "monsters",
+  "version": "1.0.0",
+  "description": "Database per mostri di D&D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dungeons",
+    "dragons",
+    "monsters",
+    "d20"
+  ],
+  "author": "Enrico Sciacca <enrico@equars.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.6"
+  }
+}

@@ -13,7 +13,7 @@ let tableDef = "CREATE TABLE IF NOT EXISTS monsters (" +
                "descrizione TEXT );" +
               "CREATE TABLE IF NOT EXISTS special_attacks (" +
               "id INTEGER PRIMARY KEY, " +
-              "id_monster INTEGER REFERENCES monsters(id), " +
+              "id_monster INTEGER REFERENCES monsters(id) ON DELETE CASCADE, " +
               "descr TEXT, " +
               "attacco TEXT );";
 
@@ -24,7 +24,7 @@ module.exports.connect = function(dbfile, cb ) {
 
   db = new sqlite3.Database(dbfile, (err) => {
     if (err && typeof cb === 'function') cb(err);
-    else db.run(tableDef, cb);
+    else db.exec(tableDef, cb);
   });
 }
 
@@ -33,7 +33,15 @@ module.exports.monsterAll = function(cb) {
 }
 
 module.exports.monsterGet = function(id, cb) {
-  db.get("SELECT * FROM monsters WHERE id=?", id, cb );
+  db.get("SELECT * FROM monsters WHERE id=?", id, (err, monster) => {
+    if (err) return cb(err);
+    db.all("SELECT id, descr, attacco FROM special_attacks WHERE id_monster=?",
+                        id, (err, specials) => {
+        if (err) return cb(err);
+        monster.specialAttacks = specials;
+        cb(null, monster);
+    })
+  });
 }
 
 
@@ -68,6 +76,20 @@ module.exports.monsterUpd = function(monster_id, monster, cb) {
 module.exports.monsterDel = function(monster_id, cb) {
   db.run("DELETE FROM monsters WHERE id=?", monster_id, cb );
 }
+
+
+module.exports.specialIns = function(monster_id, special, cb) {
+  db.run("INSERT INTO special_attacks (id_monster, descr, attacco) VALUES (?,?,?)",
+    [monster_id, special.descr, special.attacco], function(err) {
+      if (err) cb(err);
+      else cb(null, this.lastID);
+    });
+}
+
+module.exports.specialDel = function(special_id, cb) {
+  db.run("DELETE FROM special_attacks WHERE id=?", special_id, cb );
+}
+
 
 module.exports.close = function(cb = ()=>{} ) {
   db.close( (err) => {

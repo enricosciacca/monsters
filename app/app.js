@@ -58,6 +58,33 @@ app.delete("/monsters/:id", (req, res, next) => {
   });
 });
 
+
+app.post("/monsters/:id/special", (req, res, next) => {
+  db.monsterGet(req.params.id, (err, monster) => {
+    if (err) return next(err);
+    if (!monster) return next();
+
+    db.specialIns(req.params.id, req.body, (err) => {
+      if (err) return next(err);
+
+      db.monsterGet(req.params.id, (err, monster) => {
+        if (err) return next(err);
+        res.json( monster );
+      });
+    });
+  });
+});
+
+
+app.del("/monsters/:id/special/:idspecial", (req, res, next) => {
+  db.specialDel(req.params.idspecial, (err) => {
+    if (err) return next(err);
+    res.status(204).end();
+  });
+});
+
+
+
 // pagina 404
 app.use( (req, res, next) => {
   res.status(404).end();

@@ -1,12 +1,16 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const db = require("./database");
 
 
 const app = express();
 app.use( morgan('dev') );  // fancy HTTP log
 app.use( express.json() ); // body parser for Content-Type: application/json
+app.use(cors());  //CORS default: allow all
 
+
+// Routes
 
 app.post("/monsters", (req, res, next) => {
   db.monsterIns(req.body, (err, lastId) => {

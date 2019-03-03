@@ -1,0 +1,337 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-03-04T02:06:11.909Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"created": 1551477799532,
+			"description": "",
+			"modified": 1551656180433,
+			"name": "Monsters",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_bcef16048df344dfa21250384d589c8d",
+			"color": null,
+			"created": 1551477799875,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1551477799875,
+			"modified": 1551614756938,
+			"name": "New Environment",
+			"parentId": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_1b37491248d3414b9e2f6a1f63c87724",
+			"cookies": [],
+			"created": 1551477799877,
+			"modified": 1551477799877,
+			"name": "Default Jar",
+			"parentId": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_a750d820f2084e2a98edbc013e4c06ff",
+			"created": 1551479578025,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1551361865497.5,
+			"modified": 1551479627738,
+			"name": "Extra",
+			"parentId": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_92a532b09ae64e5fac28240835d663fb",
+			"created": 1551660854532,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1551660854532,
+			"modified": 1551660854532,
+			"name": "Special",
+			"parentId": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"created": 1551660866818,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1551660866818,
+			"modified": 1551660866818,
+			"name": "Monsters",
+			"parentId": "wrk_f46946e519ca4df08e01a11488497ebd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "env_ecfa4546d1ba45039b401b4a14f4122b",
+			"color": "#ed1435",
+			"created": 1551477811543,
+			"data": {
+				"server": "http://localhost:8000"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1551477811543,
+			"modified": 1551614748384,
+			"name": "Development",
+			"parentId": "env_bcef16048df344dfa21250384d589c8d",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_af7ea8bf9b4a48f7a31dc8d604a2864e",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"nome\": \"Cubo gelatinoso\",\n\t\"dv\": \"4d8+32\",\n\t\"ca\": 4,\n\t\"attacco\": \"1d4+1\",\n\t\"attacchiperturno\": 2,\n\t\"descrizione\": \"Se non stai attento ti ingloba. Dimensione: 3x3x3 metri.\"\n}"
+			},
+			"created": 1551479593561,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_13360d9f26aa42dc81dbd98b6440d913",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551478606103.125,
+			"method": "POST",
+			"modified": 1551660486689,
+			"name": "Extra Monster #1",
+			"parameters": [],
+			"parentId": "fld_a750d820f2084e2a98edbc013e4c06ff",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters",
+			"_type": "request"
+		},
+		{
+			"_id": "req_1300f29c8f614d10bd2241a8103f1c81",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"nome\": \"Coboldo\",\n\t\"dv\": \"1d8\",\n\t\"ca\": 15,\n\t\"attacco\": \"1d6-1\",\n\t\"attacchiperturno\": 3,\n\t\"descrizione\": \"Piccolo omuncolo squamoso\"\n}"
+			},
+			"created": 1551480996437,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_13360d9f26aa42dc81dbd98b6440d913",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551478411718.75,
+			"method": "POST",
+			"modified": 1551660439287,
+			"name": "Extra Monster #2",
+			"parameters": [],
+			"parentId": "fld_a750d820f2084e2a98edbc013e4c06ff",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters",
+			"_type": "request"
+		},
+		{
+			"_id": "req_19f4bbac48ca4cd7b10dd799c6d2225d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"descr\": \"Dani da Acido\",\n\t\"attacco\": \"1d6\"\n}"
+			},
+			"created": 1551660956705,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_7dff6b93ac99403fa460f2419a91ec59",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551660956705,
+			"method": "POST",
+			"modified": 1551661184593,
+			"name": "Add special attack",
+			"parameters": [],
+			"parentId": "fld_92a532b09ae64e5fac28240835d663fb",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters/1/special",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8b34277d370d4d00b1b4da3a10053aaa",
+			"authentication": {},
+			"body": {},
+			"created": 1551660973277,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1551569781404.0625,
+			"method": "DELETE",
+			"modified": 1551661061431,
+			"name": "Remove special attack",
+			"parameters": [],
+			"parentId": "fld_92a532b09ae64e5fac28240835d663fb",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters/1/special/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_3c08eebf6af540e5b15581f005a8bf3d",
+			"authentication": {},
+			"body": {},
+			"created": 1551478022900,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1551478022900,
+			"method": "GET",
+			"modified": 1551660877544,
+			"name": "Get Monsters",
+			"parameters": [],
+			"parentId": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters",
+			"_type": "request"
+		},
+		{
+			"_id": "req_84991c054fa64f399ca94c988620eca2",
+			"authentication": {},
+			"body": {},
+			"created": 1551478128872,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1551478022887.5,
+			"method": "GET",
+			"modified": 1551661453187,
+			"name": "Get  a Monster",
+			"parameters": [],
+			"parentId": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_3dfd38329da34bca9a2eb3ebab893e53",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"nome\": \"Scheletro\",\n\t\"dv\": \"1d12\",\n\t\"ca\": 15,\n\t\"attacco\": \"1d4+1\",\n\t\"attacchiperturno\": 2,\n\t\"descrizione\": \"Non Morto. Ma neanche vivo.\"\n}"
+			},
+			"created": 1551478187898,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_13360d9f26aa42dc81dbd98b6440d913",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551478022950,
+			"method": "POST",
+			"modified": 1551660872879,
+			"name": "Create A Monster",
+			"parameters": [],
+			"parentId": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6bbeebb6db3d4ce4864e5472cf426a4f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"nome\": \"Scheletro\",\n\t\"dv\": \"1d12\",\n\t\"ca\": 11,\n\t\"attacco\": \"1d4+1\",\n\t\"attacchiperturno\": 2,\n\t\"descrizione\": \"Magro e sciupato.\"\n}"
+			},
+			"created": 1551478247891,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_8a5cbb9d42454025adba3d341a3d9809",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551478022875,
+			"method": "PUT",
+			"modified": 1551661550338,
+			"name": "Update Monster",
+			"parameters": [],
+			"parentId": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ server  }}/monsters/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_4a114201f79848498a733e5f7934336b",
+			"authentication": {},
+			"body": {},
+			"created": 1551478256407,
+			"description": "",
+			"headers": [],
+			"isPrivate": false,
+			"metaSortKey": -1551478022862.5,
+			"method": "DELETE",
+			"modified": 1551660891131,
+			"name": "Remove Monster",
+			"parameters": [],
+			"parentId": "fld_097eb35c5b0f4b08b69c2db18198d115",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": false,
+			"settingStoreCookies": false,
+			"url": "{{ server  }}/monsters/2",
+			"_type": "request"
+		}
+	]
+}

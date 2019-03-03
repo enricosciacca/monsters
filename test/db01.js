@@ -22,9 +22,9 @@ db.connect(false,  (err) => {
     if (err) throw err;
     console.log("Connessione");
 
-    db.monsterIns( m1,  (err) => {
+    db.monsterIns( m1,  (err, lastId) => {
         if (err) throw err;
-        console.log("Inserimento mostro");
+        console.log("Inserito mostro #" + lastId);
 
         db.monsterAll( (err, monsters) => {
             if (err) throw err;

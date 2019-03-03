@@ -46,7 +46,10 @@ module.exports.monsterIns = function(monster,  cb) {
     values_array.push( monster[x] );
   }
   db.run("INSERT INTO monsters (nome, dv, ca, attacco, attacchiperturno, descrizione) VALUES (?,?,?,?,?,?)",
-    values_array, cb );
+    values_array, function(err) {
+      if (err) cb(err);
+      else cb(null, this.lastID);
+    });
 }
 
 module.exports.monsterUpd = function(monster_id, monster, cb) {

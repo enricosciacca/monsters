@@ -9,9 +9,13 @@ app.use( express.json() ); // body parser for Content-Type: application/json
 
 
 app.post("/monsters", (req, res, next) => {
-  db.monsterIns(req.body, (err) => {
+  db.monsterIns(req.body, (err, lastId) => {
     if (err) return next(err);
-    res.status(201).json( req.body );
+
+    db.monsterGet(lastId, (err, monster) => {
+      if (err) return next(err);
+      res.json( monster );
+    });
   });
 });
 

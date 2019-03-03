@@ -1,0 +1,10 @@
+{
+  "development": {
+    "dbfile": "./data/devdb.sqlite",
+    "port": 8000
+  },
+  "production": {
+    "dbfile": "./data/dbmonsters.sqlite",
+    "port": 3333
+  }
+}

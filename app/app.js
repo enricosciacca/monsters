@@ -63,10 +63,10 @@ app.use( (err, req, res, next) => {
 });
 
 
-module.exports.start = function() {
-  db.connect("./data/dbmonsters.sqlite",  (err) => {
+module.exports.start = function(dbfile, port) {
+  db.connect(dbfile,  (err) => {
       if (err) throw err;
       console.log("Database connected.")
-      app.listen(8000, () => console.log("Listenting on port 8000"));
+      app.listen(port, () => console.log("Listenting on port " + port));
   });
 }

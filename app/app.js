@@ -8,7 +8,7 @@ const app = express();
 app.use( morgan('dev') );  // fancy HTTP log
 app.use( express.json() ); // body parser for Content-Type: application/json
 app.use(cors());  //CORS default: allow all
-
+app.disable('x-powered-by');
 
 // Routes
 

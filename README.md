@@ -1,4 +1,12 @@
 
+COME USARE
+==============================================================================
+```
+npm install
+npm start
+```
+Nella cartella "docs" è incluso un Export della configurazione di Insomnia
+
 MONSTERS
 ==============================================================================
 

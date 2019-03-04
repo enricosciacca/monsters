@@ -29,17 +29,24 @@ app.get("/monsters", (req, res, next) => {
 app.get("/monsters/:id", (req, res, next) => {
   db.monsterGet(req.params.id, (err, monster) => {
     if (err) return next(err);
+    if (!monster) return next();
     res.json( monster );
   });
 });
 
 app.put("/monsters/:id", (req, res, next) => {
-  db.monsterUpd(req.params.id, req.body, (err) => {
-    if (err) return next(err);
 
-    db.monsterGet(req.params.id, (err, monster) => {
+  db.monsterGet(req.params.id, (err, monster) => {
+    if (err) return next(err);
+    if (!monster) return next();
+
+    db.monsterUpd(req.params.id, req.body, (err) => {
       if (err) return next(err);
-      res.json( monster );
+
+      db.monsterGet(req.params.id, (err, monster) => {
+        if (err) return next(err);
+        res.json( monster );
+      });
     });
   });
 });

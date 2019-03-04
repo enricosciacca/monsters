@@ -69,7 +69,7 @@ module.exports.monsterUpd = function(monster_id, monster, cb) {
   }
   values_array.push( monster_id );
 
-  db.get("UPDATE monsters SET " + values_strings.join() + " WHERE id=?",
+  db.run("UPDATE monsters SET " + values_strings.join() + " WHERE id=?",
           values_array, cb );
 }
 

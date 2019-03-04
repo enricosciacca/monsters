@@ -15,10 +15,9 @@ app.disable('x-powered-by');
 app.post("/monsters", (req, res, next) => {
   db.monsterIns(req.body, (err, lastId) => {
     if (err) return next(err);
-
     db.monsterGet(lastId, (err, monster) => {
       if (err) return next(err);
-      res.json( monster );
+      res.status(201).json( {"monster": monster }  );
     });
   });
 });
@@ -26,7 +25,7 @@ app.post("/monsters", (req, res, next) => {
 app.get("/monsters", (req, res, next) => {
   db.monsterAll( (err, monsters) => {
     if (err) return next(err);
-    res.json( monsters );
+    res.json( {"monsters": monsters }  );
   });
 });
 
@@ -34,7 +33,7 @@ app.get("/monsters/:id", (req, res, next) => {
   db.monsterGet(req.params.id, (err, monster) => {
     if (err) return next(err);
     if (!monster) return next();
-    res.json( monster );
+    res.json( {"monster": monster }  );
   });
 });
 
@@ -49,14 +48,14 @@ app.put("/monsters/:id", (req, res, next) => {
 
       db.monsterGet(req.params.id, (err, monster) => {
         if (err) return next(err);
-        res.json( monster );
+        res.json( {"monster": monster }  );
       });
     });
   });
 });
 
 app.delete("/monsters/:id", (req, res, next) => {
-  db.monsterDel(req.params.id, (err, monster) => {
+  db.monsterDel(req.params.id, (err) => {
     if (err) return next(err);
     res.status(204).end();
   });
@@ -97,7 +96,7 @@ app.use( (req, res, next) => {
 // error handler
 app.use( (err, req, res, next) => {
   console.log(err.message);
-  res.status(err.status || 500).end();
+  res.status(err.status || 500).send({ error: err.message});
 });
 
 
